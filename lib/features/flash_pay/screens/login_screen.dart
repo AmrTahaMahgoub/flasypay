@@ -1,4 +1,5 @@
 
+import 'package:flasypay/features/flash_pay/screens/user_data_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,10 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         Image.asset(
-                            'lib/features/flash_pay/assets/images/flash.jpg'),
+                            'lib/features/flash_pay/assets/images/myflash.jpg'),
                         const Text('FlashPay', style: kLogoname),
                         SizedBox(
-                          height: 40.h,
+                          height: 10.h,
                         ),
                         TextFormFeildModel(
                             controller: FirstName,
@@ -68,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             KeyBoardType: TextInputType.name),
                         SizedBox(
-                          height: 25.h,
+                          height: 10.h,
                         ),
                         TextFormFeildModel(
                             controller: LastName,
@@ -85,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             KeyBoardType: TextInputType.name),
                         SizedBox(
-                          height: 20.h,
+                          height: 10.h,
                         ),
                         TextFormFeildModel(
                             controller: Phonenumber,
@@ -104,13 +105,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 40.h,
-                  ),
+
                   MaterialButton(
                     height: 52.0.h,
                     onPressed: () {
-                      formkey.currentState?.validate();
+                    if( formkey.currentState!.validate())
+                     { Navigator.push(context, MaterialPageRoute (
+                        builder: (BuildContext context) => UserData()
+                      ));}
                     },
                     color: Colors.redAccent,
                     child: const Text(
@@ -123,10 +125,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Padding(
                     padding:  EdgeInsets.only(left: 42.w),
-                    child: Wrap(
+                    child: Row(
                       children: [
                         const Text(
-                          'Already have an account?',
+                          'Already have an account?',textAlign: TextAlign.start,
                           style: kMessage,
                         ),
                         Text(

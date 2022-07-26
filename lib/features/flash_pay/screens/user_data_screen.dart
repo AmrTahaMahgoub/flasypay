@@ -33,7 +33,7 @@ class UserData extends StatelessWidget {
                     ),
                     Container(
                       child: Image.asset(
-                          'lib/features/flash_pay/assets/images/flash.jpg'),
+                          'lib/features/flash_pay/assets/images/myflash.jpg'),
                     ),
                     Text(
                       'You\'re all set',
