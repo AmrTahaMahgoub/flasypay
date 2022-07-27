@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Image.asset('assets/images/myflash.jpg'),
                         const Text('FlashPay', style: kLogoname),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         TextFormFeildModel(
                             controller: FirstName,
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             KeyBoardType: TextInputType.name),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         TextFormFeildModel(
                             controller: LastName,
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             KeyBoardType: TextInputType.name),
                         SizedBox(
-                          height: 10.h,
+                          height: 5.h,
                         ),
                         TextFormFeildModel(
                             controller: Phonenumber,

@@ -19,7 +19,7 @@ class TextFormFeildModel extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-          labelText: label, labelStyle: const TextStyle(color: Colors.blueAccent)),
+          labelText: label, labelStyle: const TextStyle(color: Colors.blueAccent,fontSize: 12)),
       validator: validation,
       onSaved: onsaved,
       keyboardType: KeyBoardType,
