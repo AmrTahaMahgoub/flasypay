@@ -1,5 +1,6 @@
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flasypay/features/flash_pay/screens/user_data_screen.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../components/Uncolored_buttons.dart';
 import '../components/constants.dart';
 import '../components/text_form_feild.dart';
+import '../translation/locale_keys.g.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
   final formkey = GlobalKey<FormState>();
   final FirstName = TextEditingController();
   final LastName = TextEditingController();
@@ -34,11 +37,11 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(
-              left: 18.w, right: 18.w, bottom: 18.h, top: 15.h),
+          padding:
+              EdgeInsets.only(left: 18.w, right: 18.w, bottom: 18.h, top: 15.h),
           child: SingleChildScrollView(
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   UncoloredButtons(
@@ -47,15 +50,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     key: formkey,
                     child: Column(
                       children: [
-                        Image.asset(
-                            'lib/features/flash_pay/assets/images/myflash.jpg'),
+                        Image.asset('assets/images/myflash.jpg'),
                         const Text('FlashPay', style: kLogoname),
                         SizedBox(
                           height: 10.h,
                         ),
                         TextFormFeildModel(
                             controller: FirstName,
-                            label: 'First name',
+                            label: LocaleKeys.first_name.tr(),
                             onsaved: (value) {
                               FirstName.text = value!;
                               print(value);
@@ -73,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextFormFeildModel(
                             controller: LastName,
-                            label: 'Last name',
+                            label: LocaleKeys.second_name.tr(),
                             onsaved: (value) {
                               LastName.text = value!;
                             },
@@ -90,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextFormFeildModel(
                             controller: Phonenumber,
-                            label: 'Phone Number',
+                            label: LocaleKeys.Phone_number.tr(),
                             onsaved: (value) {
                               Phonenumber.text = value!;
                             },
@@ -105,14 +107,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-
                   MaterialButton(
                     height: 52.0.h,
                     onPressed: () {
-                    if( formkey.currentState!.validate())
-                     { Navigator.push(context, MaterialPageRoute (
-                        builder: (BuildContext context) => UserData()
-                      ));}
+                      if (formkey.currentState!.validate()) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => UserData()));
+                      }
                     },
                     color: Colors.redAccent,
                     child: const Text(
@@ -124,11 +127,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 10.h,
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(left: 42.w),
+                    padding: EdgeInsets.only(left: 42.w),
                     child: Row(
                       children: [
-                        const Text(
-                          'Already have an account?',textAlign: TextAlign.start,
+                        Text(
+                          'Already have an account ?',
+                          textAlign: TextAlign.start,
                           style: kMessage,
                         ),
                         Text(
@@ -138,6 +142,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                          onPressed: () async {
+                            await context.setLocale(Locale('en'));
+                          },
+                          child: Text('English')),
+                      TextButton(
+                          onPressed: () async {
+                            await context.setLocale(Locale('ar'));
+                          },
+                          child: Text('العربيه'))
+                    ],
+                  )
                 ]),
           ),
         ),
