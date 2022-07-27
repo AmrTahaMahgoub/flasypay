@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             validation: (value) {
                               if (value!.isEmpty) {
-                                return 'Please enter Phone number';
+                                return 'Please enter mobile number';
                               } else {
                                 return null;
                               }
